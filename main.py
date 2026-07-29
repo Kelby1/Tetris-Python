@@ -1,6 +1,7 @@
 from settings import *
 import pygame
 from board import Board
+from piece import Piece
 
 pygame.init()
 
@@ -12,6 +13,7 @@ pygame.display.set_caption("Tetris")
 clock = pygame.time.Clock()
 
 board = Board()
+piece = Piece()
 
 running = True
 
@@ -22,7 +24,7 @@ while running:
 
     screen.fill((30,30,30))
     board.draw(screen)
-
+    piece.draw(screen)
     pygame.display.flip()
 
     clock.tick(60)
