@@ -21,6 +21,13 @@ while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
+        elif event.type ==pygame.KEYDOWN:
+            if event.key== pygame.K_LEFT:
+                piece.move_left()
+            elif event.key == pygame.K_RIGHT:
+                piece.move_right()
+            elif event.key == pygame.K_DOWN:
+                piece.move_down()
 
     screen.fill((30,30,30))
     board.draw(screen)

@@ -23,3 +23,15 @@ class Piece:
                     pygame.draw.rect(screen, self.color, rect)
 
                     pygame.draw.rect(screen, BLACK, rect, 1)
+
+    def move_left(self):
+        if self.col > 0:
+            self.col -=1
+
+    def move_right(self):
+        if self.col < COLS - len(self.shape[0]):
+            self.col +=1
+
+    def move_down(self):
+        if self.row < ROWS - len(self.shape):
+            self.row +=1
