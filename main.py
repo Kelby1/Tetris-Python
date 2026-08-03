@@ -19,7 +19,7 @@ running = True
 
 fall_time = 0
 fall_speed = 500
-
+#this is the main game loop, it handles the game logic and event handling
 while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -30,7 +30,8 @@ while running:
             elif event.key == pygame.K_RIGHT:
                 piece.move_right()
             elif event.key == pygame.K_DOWN:
-                piece.move_down()
+                if piece.can_move_down():
+                    piece.move_down
     fall_time += clock.get_time()
     if fall_time >= fall_speed:
         piece.move_down()

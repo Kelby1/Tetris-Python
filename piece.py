@@ -33,5 +33,8 @@ class Piece:
             self.col +=1
 
     def move_down(self):
-        if self.row < ROWS - len(self.shape):
+        if self.can_move_down():
             self.row +=1
+    
+    def can_move_down(self):
+        return self.row < ROWS - len(self.shape)
