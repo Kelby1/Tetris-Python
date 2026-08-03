@@ -32,6 +32,9 @@ while running:
             elif event.key == pygame.K_DOWN:
                 if piece.can_move_down():
                     piece.move_down
+                else:
+                    board.lock_piece(piece)
+                    piece = Piece()
     fall_time += clock.get_time()
     if fall_time >= fall_speed:
         piece.move_down()

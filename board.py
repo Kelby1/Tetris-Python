@@ -23,3 +23,28 @@ class Board:
                 rect = pygame.Rect(x,y, CELL_SIZE, CELL_SIZE)
 
                 pygame.draw.rect(screen,(70,70,70),rect,1)
+
+                if self.grid[row][col] == 1:
+                    filled_rect = pygame.Rect(
+                        x,
+                        y,
+                        CELL_SIZE,
+                        CELL_SIZE
+                    )
+
+                    pygame.draw.rect(
+                        screen,
+                        (100, 180, 255),
+                        filled_rect
+                    )
+    
+    def lock_piece(self,piece):
+
+        for r, row in enumerate(piece.shape):
+            for c, value in enumerate(row):
+
+                if value == 1:
+                    board_row = piece.row + r
+                    board_col = piece.col + c
+
+                    self.grid[board_row][board_col] = 1
