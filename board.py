@@ -48,3 +48,19 @@ class Board:
                     board_col = piece.col + c
 
                     self.grid[board_row][board_col] = 1
+
+    def clear_lines(self):
+        lines_cleared = 0
+        new_grid = []
+
+        for row in self.grid:
+            if "0" not in row and 0 not in row:
+                lines_cleared += 1
+            else:
+                new_grid.append(row)
+
+        for _ in range(lines_cleared):
+            new_grid.insert(0, ["0" for _ in range(COLS)])
+
+        self.grid = new_grid
+        return lines_cleared

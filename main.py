@@ -31,13 +31,19 @@ while running:
                 piece.move_right()
             elif event.key == pygame.K_DOWN:
                 if piece.can_move_down():
-                    piece.move_down
+                    piece.move_down()
                 else:
                     board.lock_piece(piece)
+                    board.clear_lines()
                     piece = Piece()
     fall_time += clock.get_time()
     if fall_time >= fall_speed:
-        piece.move_down()
+        if piece.can_move_down():
+            piece.move_down()
+        else:
+            board.lock_piece(piece)
+            board.clear_lines()
+            piece = Piece()
         fall_time = 0
 
     screen.fill((30,30,30))
